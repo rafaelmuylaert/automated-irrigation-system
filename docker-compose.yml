@@ -1,6 +1,6 @@
 version: "4"
 services:
-    backend:
+  backend:
     build: ./webserver/
     ports:
       - "3000:3000"
