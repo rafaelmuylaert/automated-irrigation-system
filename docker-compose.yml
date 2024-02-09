@@ -1,24 +1,7 @@
-version: "3"
+version: "4"
 services:
-  frontend:
-    build: .
-    ports:
-      - "5000:5000"
-    restart: always
-    command: npm start
-    volumes:
-      - ./:/src
-      - /node_modules/
-      - /backend/
-    depends_on:
-      - backend
-      - mongodb
-    environment:
-      - SKIP_PREFLIGHT_CHECK:true
-      - HOST=0.0.0.0
-
-  backend:
-    build: ./backend/
+    backend:
+    build: ./webserver/
     ports:
       - "3000:3000"
     volumes:
