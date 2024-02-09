@@ -5,8 +5,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./backend:/src/backend
-      - /src/backend/node_modules/
+      - ./webserver:/src/webserver
+      - /src/webserver/node_modules/
       - /var/run/dbus:/var/run/dbus
       - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
     command: npm start
