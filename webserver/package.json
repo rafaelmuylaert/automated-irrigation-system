@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "rm package-lock.json",
     "start": "nodemon node ./bin/www"
   },
   "dependencies": {
