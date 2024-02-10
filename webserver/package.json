@@ -24,6 +24,10 @@
     "nodemon": "latest"
   },
   "main": "app.js",
+  "exports": {
+    ".": "app.js",
+    "./frontend": "./frontend/frontend.js",
+  }
   "keywords": [],
   "author": "Patrick Hallek",
   "license": "MIT",
