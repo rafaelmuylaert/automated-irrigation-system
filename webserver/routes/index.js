@@ -5,7 +5,7 @@ const MeasurementController = require("../controller/measurement-controller");
 const PreferenceController = require("../controller/preference-controller");
 const SensorController = require("../controller/sensor-controller");
 const IrrigationController = require("../controller/irrigation-controller");
-const FrontEnd = require("../frontend/frontend.js");
+
 
 const measurementLimiter = rateLimit({
     windowMs: 1000, // time window
@@ -14,7 +14,7 @@ const measurementLimiter = rateLimit({
 });
 
 /* GET home page. */
-router.get('/', FrontEnd.App);
+router.get('/', .render('../frontend/frontend.js'));
 
 router.get('/measurements/all/:sensorName', MeasurementController.getAllMeasurements);
 router.get('/measurements/month/:sensorName', MeasurementController.getLastMonthMeasurements);
