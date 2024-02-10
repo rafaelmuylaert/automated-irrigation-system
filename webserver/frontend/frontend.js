@@ -4,7 +4,7 @@ import { ThemeProvider} from "theme-ui";
 import theme from "./theme";
 import Main from "./Main";
 
-function App() {
+exports.App = async () => {
   return (
     <ThemeProvider theme={theme}>
       <ColorMode />
