@@ -23,7 +23,7 @@
   "devDependencies": {
     "nodemon": "latest"
   },
-  "main": "app.js",
+  "main": "./frontend/frontend.js",
   "exports": {
     ".": "app.js",
     "./frontend": "./frontend/frontend.js"
