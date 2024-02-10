@@ -8,7 +8,6 @@
   "dependencies": {
     "body-parser": "latest",
     "cookie-parser": "latest",
-    "jade": "latest",
     "debug": "latest",
     "dotenv": "latest",
     "express": "latest",
