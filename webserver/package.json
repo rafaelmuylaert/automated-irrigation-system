@@ -6,8 +6,8 @@
     "start": "nodemon node ./bin/www"
   },
   "dependencies": {
-    "cookie-parser": "latest",
     "body-parser": "latest",
+    "cookie-parser": "latest",
     "debug": "latest",
     "dotenv": "latest",
     "express": "latest",
