@@ -17,17 +17,13 @@
     "morgan": "latest",
     "node-cron": "latest",
     "rpio": "latest",
-    "pug": "latest",
+    "ejs": "latest",
     "mdns": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"
   },
-  "main": "./frontend/frontend.js",
-  "exports": {
-    ".": "app.js",
-    "./frontend": "./frontend/frontend.js"
-  },
+  "main": "app.js",
   "keywords": [],
   "author": "Patrick Hallek",
   "license": "MIT",

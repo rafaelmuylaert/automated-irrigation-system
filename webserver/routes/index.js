@@ -15,7 +15,7 @@ const measurementLimiter = rateLimit({
 
 /* GET home page. */
 
-router.get('/', function (req, res) {res.redirect('../frontend/frontend.js')});
+router.get('/front', res.render('../frontend/frontend.js'));
 
 router.get('/measurements/all/:sensorName', MeasurementController.getAllMeasurements);
 router.get('/measurements/month/:sensorName', MeasurementController.getLastMonthMeasurements);
