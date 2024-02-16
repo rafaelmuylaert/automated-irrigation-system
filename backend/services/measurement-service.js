@@ -3,48 +3,41 @@ const HourlyMeasurement = require("../models/measurements/hourly-measurement");
 const MinutelyMeasurement = require("../models/measurements/minutely-measurement");
 const SecondlyMeasurement = require("../models/measurements/secondly-measurement");
 
-exports.setMeasurement = async (capacity, sensorName) => {
-    const minute = 1000 * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-
-    const currentDay = new Date(Math.floor(new Date().getTime() / day) * day);
-    const currentHour = new Date(Math.floor(new Date().getTime() / hour) * hour);
-    const currentMinute = new Date(Math.floor(new Date().getTime() / minute) * minute);
-    const currentDate = new Date();
-
-    let result = [];
-    result.push(updateMeasurement(DailyMeasurement, currentDay, capacity, sensorName));
-    result.push(updateMeasurement(HourlyMeasurement, currentHour, capacity, sensorName));
-    result.push(updateMeasurement(MinutelyMeasurement, currentMinute, capacity, sensorName));
-    result.push(updateMeasurement(SecondlyMeasurement, currentDate, capacity, sensorName));
-
+exports.setMeasurement = async (measurementdata, queryFilter) => {
+    const lastDailyMeasurement = await DailyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
+    const date = new Date();
+    var update = true;
+    if (lastDailyMeasurement) {
+        if(lastDailyMeasurement.timestamp.getDate() < date.getDate()){update = false;}
+    } 
+    if(update){DailyMeasurement.create(measurementdata);}
+    
+    const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
+    var update = true;
+    if (lastHourlyMeasurement) {
+        if (lastHourlyMeasurement.timestamp.getHours() < date.getHours()){update = false;}
+        
+    } 
+    if(update){HourlyMeasurement.create(measurementdata);}
+    MinutelyMeasurement.create(measurementdata);
+    SecondlyMeasurement.create(measurementdata);
+    result = [];
     return result;
 };
 
-const updateMeasurement = async (collection, timestamp, capacity, sensorName) => {
-    return collection.updateOne({
-        timestamp
-    }, {
-        capacity,
-        sensorName
-    }, {
-        upsert: true,
-    })
-}
-
-exports.getDailyMeasurements = async (queryFilter) => {
+exports.getDailyMeasurements = (queryFilter) => {
     return DailyMeasurement.find(queryFilter);
 };
 
-exports.getHourlyMeasurements = async (queryFilter) => {
+exports.getHourlyMeasurements = (queryFilter) => {
     return HourlyMeasurement.find(queryFilter);
 };
 
-exports.getMinutelyMeasurements = async (queryFilter) => {
+exports.getMinutelyMeasurements = (queryFilter) => {
     return MinutelyMeasurement.find(queryFilter);
 };
 
-exports.getSecondlyMeasurements = async (queryFilter) => {
+exports.getSecondlyMeasurements = (queryFilter) => {
+
     return SecondlyMeasurement.find(queryFilter);
 };

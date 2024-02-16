@@ -22,7 +22,7 @@ mongoose.connect(uri)
     console.log('Connection to database!')
   })
   .catch((e) => {
-    console.log('Connection to database failed:' + e)
+    console.log('Connection to database failed!' +e)
   })
 
 // view engine setup

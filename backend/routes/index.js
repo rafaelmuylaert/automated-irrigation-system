@@ -5,6 +5,7 @@ const MeasurementController = require("../controller/measurement-controller");
 const PreferenceController = require("../controller/preference-controller");
 const SensorController = require("../controller/sensor-controller");
 const IrrigationController = require("../controller/irrigation-controller");
+const SensorService = require("../services/sensor-service");
 
 const measurementLimiter = rateLimit({
     windowMs: 1000, // time window

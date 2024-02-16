@@ -22,11 +22,11 @@ exports.getPreference = async (sensorName) => {
         }) : {}
 }
 
-exports.getPreferences = async () => {
-    return await Preference.find({})
+exports.getPreferences = () => {
+    return Preference.find({})
 }
 
-exports.updatePreferences = async (payload, sensorName) => {
+exports.updatePreferences = (payload, sensorName) => {
     console.log(payload)
     const preferences = {
         minIrrigationIntervalInMinutes: payload.minIrrigationIntervalInMinutes,
@@ -39,7 +39,7 @@ exports.updatePreferences = async (payload, sensorName) => {
         ReadingIntervalInMinutes: payload.ReadingIntervalInMinutes,
         sensorName: payload.sensorName
     }
-    const preference = await Preference.findOneAndUpdate({
+    const preference = Preference.findOneAndUpdate({
         sensorName
     }, {
         $set: preferences
