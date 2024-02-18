@@ -84,18 +84,34 @@ const LineChart = props => {
           async (liveData) => {
             const timestamps = liveData.map(data => data.timestamp)
             const datasets = liveData.map(data => omit(data, ['timestamp','__v',"_id"]))
-
             const capacities = liveData.map(data => capacityFactor / data.capacity)
-            setChartData({
+            var lineChartData = {
               labels: timestamps,
-              datasets: [{
-                fill: true,
-                data: datasets,
-                borderWidth: 2,
-                backgroundColor: 'rgba(4, 214, 144, 0.1)',
-                borderColor: 'rgba(4, 214, 143, 1)',
-              }],
-            })
+              datasets: []
+            };
+            const omitkeys = ['timestamp','__v',"_id"]
+            
+            liveData[0].keys().forEach((element) => {
+              if(!omitkeys.includes(element)){
+                lineChartData.datasets.push(
+                  {
+                    label: element,
+                    data: liveData.map(data => data[element])
+                  }
+                )
+              }
+            });
+            setChartData(lineChartData)
+//            setChartData({
+//              labels: timestamps,
+//              datasets: [{
+//                fill: true,
+//                data: datasets,
+//                borderWidth: 2,
+//                backgroundColor: 'rgba(4, 214, 144, 0.1)',
+//                borderColor: 'rgba(4, 214, 143, 1)',
+//              }],
+//            })
           },
           (error) => {
             console.log(`Coudn't fetch data. Error: ${error}`)
