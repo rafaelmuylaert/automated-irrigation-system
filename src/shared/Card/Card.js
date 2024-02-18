@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+/** @jsx jsx */
 import { jsx } from "theme-ui";
 import "./Card.css";
 
