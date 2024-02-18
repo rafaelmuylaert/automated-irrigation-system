@@ -78,8 +78,8 @@ const LineChart = props => {
         .then(
           async (liveData) => {
             const timestamps = liveData.map(data => data.timestamp)
-            const datasets = liveData
-            delete datasets.timestamp
+            const datasets = liveData.map(data => _.omit(data, ['timestamp','__v',"_id"]))
+
             const capacities = liveData.map(data => capacityFactor / data.capacity)
             setChartData({
               labels: timestamps,
