@@ -4,6 +4,11 @@ import React, { useState, useEffect } from 'react'
 import { Line } from "react-chartjs-2";
 import "./LineChart.css";
 
+const omit = (obj, arr) =>
+  Object.keys(obj)
+    .filter(k => !arr.includes(k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+
 const LineChart = props => {
   const sensorName = props.sensorInFocus
   const capacityFactor = 100000
@@ -78,7 +83,7 @@ const LineChart = props => {
         .then(
           async (liveData) => {
             const timestamps = liveData.map(data => data.timestamp)
-            const datasets = liveData.map(data => _.omit(data, ['timestamp','__v',"_id"]))
+            const datasets = liveData.map(data => omit(data, ['timestamp','__v',"_id"]))
 
             const capacities = liveData.map(data => capacityFactor / data.capacity)
             setChartData({
