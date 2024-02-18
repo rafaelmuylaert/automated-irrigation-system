@@ -89,9 +89,9 @@ const LineChart = props => {
               labels: timestamps,
               datasets: []
             };
+
             const omitkeys = ['timestamp','__v',"_id"]
-            
-            liveData[0].keys().forEach((element) => {
+            Object.keys(liveData[0]).forEach((element) => {
               if(!omitkeys.includes(element)){
                 lineChartData.datasets.push(
                   {
