@@ -78,12 +78,14 @@ const LineChart = props => {
         .then(
           async (liveData) => {
             const timestamps = liveData.map(data => data.timestamp)
+            const datasets = liveData
+            delete datasets.timestamp
             const capacities = liveData.map(data => capacityFactor / data.capacity)
             setChartData({
               labels: timestamps,
               datasets: [{
                 fill: true,
-                data: capacities,
+                data: datasets,
                 borderWidth: 2,
                 backgroundColor: 'rgba(4, 214, 144, 0.1)',
                 borderColor: 'rgba(4, 214, 143, 1)',
