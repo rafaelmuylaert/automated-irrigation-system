@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "./index.js",
+  "main": "index.js",
   "author": "Patrick Hallek",
   "license": "MIT",
   "dependencies": {
