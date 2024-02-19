@@ -7,12 +7,10 @@ const linecolors = ["#05d690","#057fd6","#2705d6","#c405d6","#d6054b","#d65c05",
 const bgcolors = ["#05d69010","#057fd610","#2705d610","#c405d610","#d6054b10","#d65c0510","#b3d60510","#17d60510"];
 const LineChart = props => {
   const sensorName = props.sensorInFocus
+  var requestIntervall = 60000 // 1 minute
   if (sensorName) {
-    sensorInFocusProps = props.sensors.filter( i => i.sensorName == sensorName);
-    const requestIntervall = Math.min(60000 * sensorInFocusProps.ReadingIntervalInMinutes , 1000)
-  }
-  else{
-    const requestIntervall = 60000 // 1 minute
+    const sensorInFocusProps = props.sensors.filter( i => i.sensorName == sensorName);
+    requestIntervall = Math.min(60000 * sensorInFocusProps.ReadingIntervalInMinutes , 1000)
   }
   const capacityFactor = 100000
   const context = useThemeUI()
