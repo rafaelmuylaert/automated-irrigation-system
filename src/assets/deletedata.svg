@@ -1,86 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-
-<svg
-   width="800px"
-   height="800px"
-   viewBox="0 0 24.00 24.00"
-   fill="none"
-   stroke="#ffffff"
-   stroke-width="0.00024000000000000003"
-   version="1.1"
-   id="svg260"
-   sodipodi:docname="deletedata.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs264" />
-  <sodipodi:namedview
-     id="namedview262"
-     pagecolor="#000000"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     showgrid="false"
-     inkscape:zoom="1.03625"
-     inkscape:cx="399.51749"
-     inkscape:cy="323.28106"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg260" />
-  <g
-     id="SVGRepo_bgCarrier"
-     stroke-width="0" />
-  <g
-     id="SVGRepo_tracerCarrier"
-     stroke-linecap="round"
-     stroke-linejoin="round"
-     stroke="#CCCCCC"
-     stroke-width="0.384" />
-  <g
-     id="SVGRepo_iconCarrier">
-    <path
-       d="M22 22H2C1.59 22 1.25 21.66 1.25 21.25C1.25 20.84 1.59 20.5 2 20.5H22C22.41 20.5 22.75 20.84 22.75 21.25C22.75 21.66 22.41 22 22 22Z"
-       fill="#ffffff"
-       id="path251" />
-    <path
-       d="M9.75 4V22H14.25V4C14.25 2.9 13.8 2 12.45 2H11.55C10.2 2 9.75 2.9 9.75 4Z"
-       fill="#ffffff"
-       id="path253" />
-    <path
-       opacity="0.4"
-       d="M3 10V22H7V10C7 8.9 6.6 8 5.4 8H4.6C3.4 8 3 8.9 3 10Z"
-       fill="#ffffff"
-       id="path255" />
-    <path
-       opacity="0.4"
-       d="M17 15V22H21V15C21 13.9 20.6 13 19.4 13H18.6C17.4 13 17 13.9 17 15Z"
-       fill="#ffffff"
-       id="path257" />
-  </g>
-  <g
-     id="SVGRepo_iconCarrier-9"
-     transform="matrix(0.32401294,0,0,0.32401294,15.740313,1.6992996)"
-     style="fill:#ffffff">
-    <path
-       opacity="0.4"
-       d="M 12,22 C 17.5228,22 22,17.5228 22,12 22,6.47715 17.5228,2 12,2 6.47715,2 2,6.47715 2,12 2,17.5228 6.47715,22 12,22 Z"
-       fill="#292d32"
-       id="path179"
-       style="fill:#ffffff" />
-    <path
-       d="m 13.0594,12.0001 2.3,-2.29999 c 0.29,-0.29 0.29,-0.77 0,-1.06 -0.29,-0.29 -0.77,-0.29 -1.06,0 l -2.3,2.29999 -2.30003,-2.29999 c -0.29,-0.29 -0.77,-0.29 -1.05999,0 -0.29,0.29 -0.29,0.77 0,1.06 l 2.30002,2.29999 -2.30002,2.3 c -0.29,0.29 -0.29,0.77 0,1.06 0.15,0.15 0.33999,0.22 0.52999,0.22 0.19,0 0.38,-0.07 0.53,-0.22 l 2.30003,-2.3 2.3,2.3 c 0.15,0.15 0.34,0.22 0.53,0.22 0.19,0 0.38,-0.07 0.53,-0.22 0.29,-0.29 0.29,-0.77 0,-1.06 z"
-       fill="#292d32"
-       id="path181"
-       style="fill:#ffffff" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" stroke="#ffffff" stroke-width=".00024" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="#fff">
+<path d="m22 22h-20c-0.41 0-0.75-0.34-0.75-0.75s0.34-0.75 0.75-0.75h20c0.41 0 0.75 0.34 0.75 0.75s-0.34 0.75-0.75 0.75z"/>
+<path d="m9.75 4v18h4.5v-18c0-1.1-0.45-2-1.8-2h-0.9c-1.35 0-1.8 0.9-1.8 2z"/>
+<path d="M3 10V22H7V10C7 8.9 6.6 8 5.4 8H4.6C3.4 8 3 8.9 3 10Z" opacity=".4"/>
+<path d="m17 15v7h4v-7c0-1.1-0.4-2-1.6-2h-0.8c-1.2 0-1.6 0.9-1.6 2z" opacity=".4"/>
+</g>
+<g transform="matrix(.32401 0 0 .32401 15.74 1.6993)" fill="#fff">
+<path d="m12 22c5.5228 0 10-4.4772 10-10 0-5.5228-4.4772-10-10-10-5.5228 0-10 4.4772-10 10 0 5.5228 4.4772 10 10 10z" opacity=".4"/>
+<path d="m13.059 12 2.3-2.3c0.29-0.29 0.29-0.77 0-1.06s-0.77-0.29-1.06 0l-2.3 2.3-2.3-2.3c-0.29-0.29-0.77-0.29-1.06 0-0.29 0.29-0.29 0.77 0 1.06l2.3 2.3-2.3 2.3c-0.29 0.29-0.29 0.77 0 1.06 0.15 0.15 0.33999 0.22 0.52999 0.22s0.38-0.07 0.53-0.22l2.3-2.3 2.3 2.3c0.15 0.15 0.34 0.22 0.53 0.22s0.38-0.07 0.53-0.22c0.29-0.29 0.29-0.77 0-1.06z"/>
+</g>
 </svg>
