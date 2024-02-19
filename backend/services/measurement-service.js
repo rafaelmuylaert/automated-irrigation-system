@@ -10,14 +10,15 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     if (lastDailyMeasurement) {
         if(lastDailyMeasurement.timestamp.getDate() < date.getDate()){update = true;}
     } 
+    else {update = true;}
     if(update){DailyMeasurement.create(measurementdata);}
     
     const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     var update = false;
     if (lastHourlyMeasurement) {
         if (lastHourlyMeasurement.timestamp.getHours() < date.getHours()){update = true;}
-        
     } 
+    else {update = true;}
     if(update){HourlyMeasurement.create(measurementdata);}
     MinutelyMeasurement.create(measurementdata);
     SecondlyMeasurement.create(measurementdata);
