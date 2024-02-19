@@ -9,7 +9,7 @@ const SensorService = require("../services/sensor-service");
 
 const measurementLimiter = rateLimit({
     windowMs: 1000, // time window
-    max: 2, // start blocking after 5 requests
+    max: 5, // start blocking after 5 requests
     message: "Too many measurements this IP"
 });
 
