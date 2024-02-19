@@ -3,7 +3,8 @@ import { jsx, useThemeUI } from "theme-ui";
 import React, { useState, useEffect } from 'react'
 import { Line } from "react-chartjs-2";
 import "./LineChart.css";
-
+const linecolors = ["#05d690","#057fd6","#2705d6","#c405d6","#d6054b","#d65c05","#b3d605","#17d605"];
+const bgcolors = ["#05d69010","#057fd610","#2705d610","#c405d610","#d6054b10","#d65c0510","#b3d60510","#17d60510"];
 const LineChart = props => {
   const sensorName = props.sensorInFocus
   const capacityFactor = 100000
@@ -84,27 +85,20 @@ const LineChart = props => {
             };
 
             const omitkeys = ['timestamp','__v',"_id","sensorName"]
+            var i=0;
             Object.keys(liveData[0]).forEach(element => {
               if(!omitkeys.includes(element)){
                 lineChartData.datasets.push(
                   {
                     label: element,
-                    data: liveData.map(data => data[element])
+                    data: liveData.map(data => data[element]),
+                    backgroundColor: bgcolors[i % bgcolors.length],
+                    borderColor: linecolors[i++ % linecolors.length]
                   }
                 )
               }
             });
             setChartData(lineChartData)
-//            setChartData({
-//              labels: timestamps,
-//              datasets: [{
-//                fill: true,
-//                data: datasets,
-//                borderWidth: 2,
-//                backgroundColor: 'rgba(4, 214, 144, 0.1)',
-//                borderColor: 'rgba(4, 214, 143, 1)',
-//              }],
-//            })
           },
           (error) => {
             console.log(`Coudn't fetch data. Error: ${error}`)
