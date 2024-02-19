@@ -9,7 +9,6 @@ services:
     volumes:
       - ./:/src
       - /node_modules/
-      - /backend/
     depends_on:
       - backend
       - mongodb
