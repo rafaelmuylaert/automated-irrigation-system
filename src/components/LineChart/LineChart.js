@@ -10,7 +10,7 @@ const LineChart = props => {
   var requestIntervall = 60000 // 1 minute
   if (sensorName) {
     const sensorInFocusProps = props.sensors.filter( i => i.sensorName == sensorName);
-    requestIntervall = Math.min(60000 * sensorInFocusProps.ReadingIntervalInMinutes , 1000)
+    requestIntervall = Math.max(60000 * sensorInFocusProps.ReadingIntervalInMinutes , 1000)
   }
   const capacityFactor = 100000
   const context = useThemeUI()
