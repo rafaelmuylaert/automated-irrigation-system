@@ -44,10 +44,20 @@ const LineChart = props => {
         {
           ticks: {
             fontColor: context.theme.colors.text,
-            maxTicksLimit: 10
+            maxTicksLimit: 10,
+            suggestedMin: 0
+            suggestedMax: 100
           },
           id: 'y-axis-0',
           position: 'left',
+        },
+        {
+          ticks: {
+            fontColor: context.theme.colors.text,
+            maxTicksLimit: 10,
+          },
+          id: 'y-axis-1',
+          position: 'right',
         },
       ],
       xAxes: [{
@@ -92,10 +102,14 @@ const LineChart = props => {
             var i=0;
             Object.keys(liveData[0]).forEach(element => {
               if(!omitkeys.includes(element)){
+                var chartdata = liveData.map(data => data[element]);
+                var yaxisid = 'y-axis-0';
+                if(Math.max(...chartdata) > 100){yaxisid = 'y-axis-1';}
                 lineChartData.datasets.push(
                   {
                     label: element,
-                    data: liveData.map(data => data[element]),
+                    data: chartdata,
+                    yAxisID: yaxisid
                     backgroundColor: bgcolors[i % bgcolors.length],
                     borderColor: linecolors[i++ % linecolors.length]
                   }
