@@ -10,6 +10,7 @@
     "@emotion/core": "latest",
     "@emotion/react": "latest",
     "@mdx-js/react": "latest",
+    "react/jsx-runtime": "latest",
     "chart.js": "^2.9.3",
     "react": "16.12.0",
     "react-chartjs-2": "^2.9.0",
