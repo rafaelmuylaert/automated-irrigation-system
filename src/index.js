@@ -8,7 +8,6 @@ import Main from "./Main";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <useColorMode />
       <Main />
     </ThemeProvider>
   );
