@@ -15,11 +15,11 @@
     "react-chartjs-2": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
-    "serve": "11.3.2",
+    "serve": "latest",
     "theme-ui": "latest"
   },
   "devDependencies": {
-    "typescript": "3.3.3"
+    "typescript": "latest"
   },
   "scripts": {
     "dev": "react-scripts start",
