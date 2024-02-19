@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider, useColorMode } from "theme-ui";
+import { ThemeProvider } from "theme-ui";
+import { useColorMode } from 'theme-ui'
 import theme from "./theme";
 import Main from "./Main";
 
