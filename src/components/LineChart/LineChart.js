@@ -109,7 +109,7 @@ const LineChart = props => {
                   {
                     label: element,
                     data: chartdata,
-                    yAxisID: yaxisid
+                    yAxisID: yaxisid,
                     backgroundColor: bgcolors[i % bgcolors.length],
                     borderColor: linecolors[i++ % linecolors.length]
                   }
