@@ -19,7 +19,8 @@
     "theme-ui": "latest"
   },
   "devDependencies": {
-    "typescript": "latest"
+    "typescript": "latest",
+    "@babel/plugin-proposal-private-property-in-object": "latest"
   },
   "scripts": {
     "dev": "react-scripts start",
