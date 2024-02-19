@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "latest",
+    "@emotion/react": "latest",
     "@mdx-js/react": "latest",
     "chart.js": "^2.9.3",
     "react": "16.12.0",
