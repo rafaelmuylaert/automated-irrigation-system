@@ -45,7 +45,7 @@ const LineChart = props => {
           ticks: {
             fontColor: context.theme.colors.text,
             maxTicksLimit: 10,
-            suggestedMin: 0
+            suggestedMin: 0,
             suggestedMax: 100
           },
           id: 'y-axis-0',
