@@ -1,8 +1,6 @@
 FROM node
 WORKDIR /frontend
-COPY ./src ./
-COPY ./public ./
-COPY package*.json ./
+COPY . ./
 RUN npm install --install-strategy=nested
 RUN npm run build
 EXPOSE 5000
