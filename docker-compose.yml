@@ -7,7 +7,7 @@ services:
     restart: always
     command: npm start
     volumes:
-      - ./frontend:/frontend/src
+      - ./frontend:/src
     depends_on:
       - backend
       - mongodb
