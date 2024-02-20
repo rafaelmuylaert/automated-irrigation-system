@@ -1,6 +1,6 @@
 FROM node
-COPY ./frontend/src /frontend/src
-COPY ./frontend/public /frontend/public
+COPY ./frontend/src /frontend/
+COPY ./frontend/public /frontend/
 WORKDIR /frontend
 COPY package*.json ./
 RUN npm install --install-strategy=nested
