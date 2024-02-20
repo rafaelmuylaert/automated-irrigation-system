@@ -9,6 +9,7 @@ services:
     volumes:
       - ./frontend:/frontend/src
       - ./public:/frontend/public
+      - /frontend/node_modules/
     depends_on:
       - backend
       - mongodb
@@ -22,6 +23,7 @@ services:
       - "3000:3000"
     volumes:
       - ./backend:/backend
+      - /backend/node_modules/
       - /var/run/dbus:/var/run/dbus
       - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
     command: npm start
