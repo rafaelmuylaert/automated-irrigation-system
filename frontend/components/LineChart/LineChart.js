@@ -40,8 +40,7 @@ const LineChart = props => {
       }
     },
     scales: {
-      yAxes: [
-        {
+      y:{
           ticks: {
             fontColor: context.theme.colors.text,
             maxTicksLimit: 10,
@@ -59,8 +58,7 @@ const LineChart = props => {
           id: 'y-axis-1',
           position: 'right',
         },
-      ],
-      xAxes: [{
+      x: {
         gridLines: {
           display: false,
         },
@@ -76,7 +74,7 @@ const LineChart = props => {
             if (dataFilter === "week") return new Date(value).toLocaleDateString('en', { day: 'numeric', month: 'short' });
           },
         },
-      }]
+      },
     },
     legend: {
       display: true,
