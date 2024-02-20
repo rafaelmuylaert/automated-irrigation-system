@@ -18,6 +18,7 @@
     "node-cron": "latest",
     "rpio": "latest",
     "pug": "latest",
+	"nodemon": "latest",
     "multicast-dns": "latest"
   },
   "devDependencies": {
