@@ -7,8 +7,8 @@ services:
     restart: always
     command: npm start
     volumes:
-      - ./frontend:/src
-      - ./public:/public
+      - ./frontend:/frontend/src
+      - ./public:/frontend/public
     depends_on:
       - backend
       - mongodb
@@ -21,7 +21,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./backend:/src/backend
+      - ./backend:/backend
       - /var/run/dbus:/var/run/dbus
       - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
     command: npm start
