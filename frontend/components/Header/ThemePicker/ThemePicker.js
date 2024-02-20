@@ -11,8 +11,8 @@ const ThemePicker = () => {
     >
       <div sx={{ color: "text" }}>
         {colorMode === "light" ?
-          <img width="20px" src={require('../../../assets/moon.svg')} alt="dark" /> :
-          <img width="20px" src={require('../../../assets/sun.svg')} alt="light" />
+          <img width="20px" src={require('../../../assets/moon.svg').default} alt="dark" /> :
+          <img width="20px" src={require('../../../assets/sun.svg').default} alt="light" />
         }
       </div>
     </button>

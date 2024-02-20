@@ -52,7 +52,7 @@ const IotButton = props => {
         }}
         onClick={() => sendIrrigationRequest()}
       >
-        {spinner === false ? <img width="40px" src={require('../../assets/watering.svg')} alt="dark" /> : <div id="loading" />}
+        {spinner === false ? <img width="40px" src={require('../../assets/watering.svg').default} alt="dark" /> : <div id="loading" />}
       </button>
       <h3 sx={{ color: "text", marginLeft: "12px", lineHeight: "23px" }}>
         Start Manual Irrigation <br />
@@ -61,7 +61,7 @@ const IotButton = props => {
       <button sx={{background:"linear-gradient(90deg, #598bff, #3366FF)"}}
         onClick={() => deletesensordata()}
       >
-        <img width="40px" src={require('../../assets/deletedata.svg')} alt="dark" />
+        <img width="40px" src={require('../../assets/deletedata.svg').default} alt="dark" />
       </button>
       <h3 sx={{ color: "text", marginLeft: "12px", lineHeight: "23px" }}>
         Delete Sensor Data <br />
@@ -69,7 +69,7 @@ const IotButton = props => {
       <button sx={{background:"linear-gradient(90deg, #598bff, #3366FF)"}}
         onClick={() => deletesensor()}
       >
-        <img width="40px" src={require('../../assets/deletesensor.svg')} alt="dark" />
+        <img width="40px" src={require('../../assets/deletesensor.svg').default} alt="dark" />
       </button>
       <h3 sx={{ color: "text", marginLeft: "12px", lineHeight: "23px" }}>
         Delete Sensor <br />
