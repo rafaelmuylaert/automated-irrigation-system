@@ -99,22 +99,24 @@ const LineChart = props => {
 
             const omitkeys = ['timestamp','__v',"_id","sensorName"]
             var i=0;
-            liveData.find(() => true).forEach(element => {
-              if(!omitkeys.includes(element.key())){
-                var chartdata = liveData.map(data => data[element.key()]);
-                var yaxisid = 'y';
-                if(Math.max(...chartdata) > 100){yaxisid = 'y1';}
-                lineChartData.datasets.push(
-                  {
-                    label: element,
-                    data: chartdata,
-                    yAxisID: yaxisid,
-                    backgroundColor: bgcolors[i % bgcolors.length],
-                    borderColor: linecolors[i++ % linecolors.length]
-                  }
-                )
-              }
-            });
+            var firstline = liveData.find(() => true);
+			Object.entries(firstline).forEach(([key, value]) => console.log(key + " :-: " + value));
+				Object.entries(firstline).forEach(([key, value]) => {
+				  if(!omitkeys.includes(key)){
+					var chartdata = liveData.map(data => data[key]);
+					var yaxisid = 'y';
+					if(Math.max(...chartdata) > 100){yaxisid = 'y1';}
+					lineChartData.datasets.push(
+					  {
+						label: key,
+						data: chartdata,
+						yAxisID: yaxisid,
+						backgroundColor: bgcolors[i % bgcolors.length],
+						borderColor: linecolors[i++ % linecolors.length]
+					  }
+					)
+				  }
+				});
             setChartData(lineChartData)
           },
           (error) => {
