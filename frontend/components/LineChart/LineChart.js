@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { useThemeUI } from 'theme-ui'
 import React, { useState, useEffect } from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineController, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
