@@ -99,9 +99,9 @@ const LineChart = props => {
 
             const omitkeys = ['timestamp','__v',"_id","sensorName"]
             var i=0;
-            liveData[0].keys().forEach(element => {
-              if(!omitkeys.includes(element)){
-                var chartdata = liveData.map(data => data[element]);
+            liveData.find(() => true).forEach(element => {
+              if(!omitkeys.includes(element.key())){
+                var chartdata = liveData.map(data => data[element.key()]);
                 var yaxisid = 'y';
                 if(Math.max(...chartdata) > 100){yaxisid = 'y1';}
                 lineChartData.datasets.push(
