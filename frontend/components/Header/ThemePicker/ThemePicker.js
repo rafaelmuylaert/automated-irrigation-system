@@ -1,12 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { useColorMode } from "theme-ui";
 
-const ThemePicker = () => {
-  const [colorMode, setColorMode] = useColorMode();
+export default (props) => {
+  const [mode, setMode] = useColorMode()
   return (
     <button
       className="toggler"
-      onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
+      onClick={(e) => {
+        const next = mode === 'dark' ? 'light' : 'dark'
+        setMode(next)
+      }}
     >
       <div sx={{ color: "text" }}>
         {colorMode === "light" ?
@@ -18,4 +21,3 @@ const ThemePicker = () => {
   );
 };
 
-export default ThemePicker;
