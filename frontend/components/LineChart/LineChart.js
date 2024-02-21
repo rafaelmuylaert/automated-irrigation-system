@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { useThemeUI } from 'theme-ui'
 import React, { useState, useEffect } from 'react'
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineController, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineController, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 
 import { Line } from "react-chartjs-2";
 import "./LineChart.css";
-ChartJS.register(CategoryScale, LineController, LineElement, PointElement, LinearScale, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LineController, LineElement, PointElement, LinearScale, Title, Tooltip, Legend, Filler);
 const linecolors = ["#05d690","#057fd6","#2705d6","#c405d6","#d6054b","#d65c05","#b3d605","#17d605"];
 const bgcolors = ["#05d69010","#057fd610","#2705d610","#c405d610","#d6054b10","#d65c0510","#b3d60510","#17d60510"];
 const LineChart = props => {
@@ -99,7 +99,7 @@ const LineChart = props => {
 
             const omitkeys = ['timestamp','__v',"_id","sensorName"]
             var i=0;
-            Object.keys(liveData[0]).forEach(element => {
+            liveData[0].keys().forEach(element => {
               if(!omitkeys.includes(element)){
                 var chartdata = liveData.map(data => data[element]);
                 var yaxisid = 'y';
