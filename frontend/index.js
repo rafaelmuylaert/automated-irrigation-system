@@ -1,15 +1,15 @@
+/** @jsxImportSource theme-ui */
 import React from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider } from "theme-ui";
-import { useColorMode } from 'theme-ui'
+import { ThemeUIProvider  } from "theme-ui";
 import theme from "./theme";
 import Main from "./Main";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeUIProvider theme={theme}>
       <Main />
-    </ThemeProvider>
+    </ThemeUIProvider>
   );
 }
 

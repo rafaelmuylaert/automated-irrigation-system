@@ -1,4 +1,8 @@
-const theme = {
+import type { Theme } from 'theme-ui'
+export const theme: Theme = {
+  config: {
+    initialColorModeName: 'dark',
+  },
   colors: {
     text: "white",
     background: "#161A30",
@@ -21,4 +25,3 @@ const theme = {
   }
 };
 
-export default theme;

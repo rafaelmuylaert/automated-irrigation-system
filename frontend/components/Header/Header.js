@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "theme-ui";
 import "./Header.css";
 import ThemePicker from "./ThemePicker/ThemePicker";
 
