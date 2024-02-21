@@ -12,7 +12,7 @@ export default (props) => {
       }}
     >
       <div sx={{ color: "text" }}>
-        {colorMode === "light" ?
+        {mode === "light" ?
           <img width="20px" src={require('../../../assets/moon.svg').default} alt="dark" /> :
           <img width="20px" src={require('../../../assets/sun.svg').default} alt="light" />
         }
