@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+/** @jsxImportSource theme-ui */
 import { jsx } from "theme-ui";
 import "./SensorPicker.css";
 
