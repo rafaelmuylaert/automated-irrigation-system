@@ -39,9 +39,9 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
 	const lastMinutelyMeasurement = await MinutelyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
     if (lastMinutelyMeasurement) {
-        if (date - lastMinutelyMeasurement.timestamp.getTime() < 60000){update = true;}
+        if (date - lastMinutelyMeasurement.timestamp.getTime() < 60000){update = true;console.log("----HERE1----");}
     } 
-    else {update = true;}
+    else {update = true;console.log("----HERE2----");}
     if(update){lastMinutelyMeasurement.create(measurementdata);}
 	console.log("----Minutely----");
 	console.log(update);
