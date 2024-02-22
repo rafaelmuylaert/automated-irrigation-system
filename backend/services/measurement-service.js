@@ -8,9 +8,8 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     const date = new Date().getTime();
 	
     var update = false;
-    if (lastDailyMeasurement) {
-        if(date - lastDailyMeasurement.timestamp.getTime() > 86400000){update = true;}
-    } 
+    if (!lastDailyMeasurement || date - lastDailyMeasurement.timestamp.getTime() > 86400000) {update = true;}
+
     else {update = true;}
     if(update){DailyMeasurement.create(measurementdata);}
 	console.log("----Daily----");
@@ -23,10 +22,7 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
 	
     const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
-    if (lastHourlyMeasurement) {
-        if (date - lastHourlyMeasurement.timestamp.getTime() < 3600000){update = true;}
-    } 
-    else {update = true;}
+	if (!lastHourlyMeasurement || date - lastHourlyMeasurement.timestamp.getTime() > 3600000) {update = true;}
     if(update){HourlyMeasurement.create(measurementdata);}
 	console.log("----Hourly----");
 	console.log(update);
@@ -38,10 +34,7 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
 	
 	const lastMinutelyMeasurement = await MinutelyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
-    if (lastMinutelyMeasurement) {
-        if (date - lastMinutelyMeasurement.timestamp.getTime() < 60000){update = true;console.log("----HERE1----");}
-    } 
-    else {update = true;console.log("----HERE2----");}
+	if (!lastMinutelyMeasurement || date - lastMinutelyMeasurement.timestamp.getTime() > 60000) {update = true;}
     if(update){lastMinutelyMeasurement.create(measurementdata);}
 	console.log("----Minutely----");
 	console.log(update);
