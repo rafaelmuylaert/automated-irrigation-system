@@ -42,13 +42,13 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
         if (date - lastMinutelyMeasurement.timestamp.getTime() < 60000){update = true;}
     } 
     else {update = true;}
-    if(update){MinutelyMeasurement.create(measurementdata);}
+    if(update){lastMinutelyMeasurement.create(measurementdata);}
 	console.log("----Minutely----");
 	console.log(update);
-	console.log(MinutelyMeasurement.timestamp.getTime());
+	console.log(lastMinutelyMeasurement.timestamp.getTime());
 	console.log(date);
-	console.log(date - MinutelyMeasurement.timestamp.getTime());
-	console.log(date - MinutelyMeasurement.timestamp.getTime() > 60000);
+	console.log(date - lastMinutelyMeasurement.timestamp.getTime());
+	console.log(date - lastMinutelyMeasurement.timestamp.getTime() > 60000);
 	console.log("-----DONE-----");
     SecondlyMeasurement.create(measurementdata);
     result = [];
