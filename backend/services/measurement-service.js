@@ -8,15 +8,12 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     const date = new Date().getTime();
 	
 	const lastDailyMeasurement = await DailyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
-    var update = false;
     if (!lastDailyMeasurement || date - lastDailyMeasurement.timestamp.getTime() > 86400000) {DailyMeasurement.create(measurementdata);}
 	
     const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
-    update = false;
 	if (!lastHourlyMeasurement || date - lastHourlyMeasurement.timestamp.getTime() > 3600000) {HourlyMeasurement.create(measurementdata);}
 	
 	const lastMinutelyMeasurement = await MinutelyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
-    update = false;
 	if (!lastMinutelyMeasurement || date - lastMinutelyMeasurement.timestamp.getTime() > 60000) {MinutelyMeasurement.create(measurementdata);}
 	
     SecondlyMeasurement.create(measurementdata);
