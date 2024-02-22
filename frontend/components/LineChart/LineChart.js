@@ -12,14 +12,18 @@ const bgcolors = ["#05d69010","#057fd610","#2705d610","#c405d610","#d6054b10","#
 const LineChart = props => {
   const sensorName = props.sensorInFocus
   var requestIntervall = 60000 // 1 minute
-  if (sensorName) {
-    const sensorInFocusProps = props.sensors.filter( i => i.sensorName == sensorName);
-    requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 1000)
-  }
   const capacityFactor = 100000
   const context = useThemeUI()
   const chartRef = React.createRef();
   const [dataFilter, setDataFilter] = useState("day");
+  
+  if (sensorName) {
+    const sensorInFocusProps = props.sensors.filter( i => i.sensorName == sensorName);
+	if (dataFilter === "minute") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 1000);}
+    if (dataFilter === "hour") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 60000);}
+    if (dataFilter === "day") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 3600000);}
+    if (dataFilter === "week") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 3600000);}
+  }
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [{
