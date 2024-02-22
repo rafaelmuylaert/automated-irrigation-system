@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { jsx } from "theme-ui";
 import { useColorMode } from "theme-ui";
 
 export default (props) => {

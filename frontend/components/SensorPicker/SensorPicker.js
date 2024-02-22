@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { jsx } from "theme-ui";
 import "./SensorPicker.css";
 
 const SensorPicker = props => {
