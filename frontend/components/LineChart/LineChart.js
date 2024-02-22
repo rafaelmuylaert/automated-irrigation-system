@@ -16,14 +16,7 @@ const LineChart = props => {
   const context = useThemeUI()
   const chartRef = React.createRef();
   const [dataFilter, setDataFilter] = useState("day");
-  
-  if (sensorName) {
-    const sensorInFocusProps = props.sensors.filter( i => i.sensorName == sensorName);
-	if (dataFilter === "minute") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 1000);}
-    if (dataFilter === "hour") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 60000);}
-    if (dataFilter === "day") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 3600000);}
-    if (dataFilter === "week") {requestIntervall = Math.max(60000 * sensorInFocusProps[0].ReadingIntervalInMinutes , 3600000);}
-  }
+
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [{
@@ -130,6 +123,10 @@ const LineChart = props => {
     }
 
     loadData()
+	if (dataFilter === "minute") {requestIntervall = 1000;}
+    if (dataFilter === "hour") {requestIntervall = 60000;}
+    if (dataFilter === "day") {requestIntervall = 3600000;}
+    if (dataFilter === "week") {requestIntervall = 3600000;}
     const intervall = setInterval(() => {
       loadData()
     }, requestIntervall)
