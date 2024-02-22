@@ -13,7 +13,11 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     } 
     else {update = true;}
     if(update){DailyMeasurement.create(measurementdata);}
-    
+	console.log("----Daily----");
+	console.log(update);
+	console.log(lastDailyMeasurement);
+	
+	
     const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
     if (lastHourlyMeasurement) {
@@ -21,6 +25,10 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     } 
     else {update = true;}
     if(update){HourlyMeasurement.create(measurementdata);}
+	console.log("----Hourly----");
+	console.log(update);
+	console.log(lastHourlyMeasurement);
+	
 	
 	const lastMinutelyMeasurement = await MinutelyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
@@ -29,6 +37,10 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     } 
     else {update = true;}
     if(update){MinutelyMeasurement.create(measurementdata);}
+	console.log("----Minutely----");
+	console.log(update);
+	console.log(lastMinutelyMeasurement);
+	console.log("-----DONE-----");
     SecondlyMeasurement.create(measurementdata);
     result = [];
     return result;
