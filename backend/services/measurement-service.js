@@ -15,7 +15,10 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     if(update){DailyMeasurement.create(measurementdata);}
 	console.log("----Daily----");
 	console.log(update);
-	console.log(lastDailyMeasurement);
+	console.log(lastDailyMeasurement.timestamp.getTime());
+	console.log(date);
+	console.log(date - lastDailyMeasurement.timestamp.getTime());
+	console.log(date - lastDailyMeasurement.timestamp.getTime() > 86400000);
 	
 	
     const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
@@ -27,7 +30,10 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     if(update){HourlyMeasurement.create(measurementdata);}
 	console.log("----Hourly----");
 	console.log(update);
-	console.log(lastHourlyMeasurement);
+	console.log(lastHourlyMeasurement.timestamp.getTime());
+	console.log(date);
+	console.log(date - lastHourlyMeasurement.timestamp.getTime());
+	console.log(date - lastHourlyMeasurement.timestamp.getTime() > 3600000);
 	
 	
 	const lastMinutelyMeasurement = await MinutelyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
@@ -39,7 +45,10 @@ exports.setMeasurement = async (measurementdata, queryFilter) => {
     if(update){MinutelyMeasurement.create(measurementdata);}
 	console.log("----Minutely----");
 	console.log(update);
-	console.log(lastMinutelyMeasurement);
+	console.log(MinutelyMeasurement.timestamp.getTime());
+	console.log(date);
+	console.log(date - MinutelyMeasurement.timestamp.getTime());
+	console.log(date - MinutelyMeasurement.timestamp.getTime() > 60000);
 	console.log("-----DONE-----");
     SecondlyMeasurement.create(measurementdata);
     result = [];
