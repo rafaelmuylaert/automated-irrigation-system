@@ -4,45 +4,21 @@ const MinutelyMeasurement = require("../models/measurements/minutely-measurement
 const SecondlyMeasurement = require("../models/measurements/secondly-measurement");
 
 exports.setMeasurement = async (measurementdata, queryFilter) => {
-    const lastDailyMeasurement = await DailyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
+    
     const date = new Date().getTime();
 	
+	const lastDailyMeasurement = await DailyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     var update = false;
-    if (!lastDailyMeasurement || date - lastDailyMeasurement.timestamp.getTime() > 86400000) {update = true;}
-
-    else {update = true;}
-    if(update){DailyMeasurement.create(measurementdata);}
-	console.log("----Daily----");
-	console.log(update);
-	console.log(lastDailyMeasurement.timestamp.getTime());
-	console.log(date);
-	console.log(date - lastDailyMeasurement.timestamp.getTime());
-	console.log(date - lastDailyMeasurement.timestamp.getTime() > 86400000);
-	
+    if (!lastDailyMeasurement || date - lastDailyMeasurement.timestamp.getTime() > 86400000) {DailyMeasurement.create(measurementdata);}
 	
     const lastHourlyMeasurement = await HourlyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
-	if (!lastHourlyMeasurement || date - lastHourlyMeasurement.timestamp.getTime() > 3600000) {update = true;}
-    if(update){HourlyMeasurement.create(measurementdata);}
-	console.log("----Hourly----");
-	console.log(update);
-	console.log(lastHourlyMeasurement.timestamp.getTime());
-	console.log(date);
-	console.log(date - lastHourlyMeasurement.timestamp.getTime());
-	console.log(date - lastHourlyMeasurement.timestamp.getTime() > 3600000);
-	
+	if (!lastHourlyMeasurement || date - lastHourlyMeasurement.timestamp.getTime() > 3600000) {HourlyMeasurement.create(measurementdata);}
 	
 	const lastMinutelyMeasurement = await MinutelyMeasurement.findOne(queryFilter).sort({ timestamp: -1 });
     update = false;
-	if (!lastMinutelyMeasurement || date - lastMinutelyMeasurement.timestamp.getTime() > 60000) {update = true;}
-    if(update){lastMinutelyMeasurement.create(measurementdata);}
-	console.log("----Minutely----");
-	console.log(update);
-	console.log(lastMinutelyMeasurement.timestamp.getTime());
-	console.log(date);
-	console.log(date - lastMinutelyMeasurement.timestamp.getTime());
-	console.log(date - lastMinutelyMeasurement.timestamp.getTime() > 60000);
-	console.log("-----DONE-----");
+	if (!lastMinutelyMeasurement || date - lastMinutelyMeasurement.timestamp.getTime() > 60000) {MinutelyMeasurement.create(measurementdata);}
+	
     SecondlyMeasurement.create(measurementdata);
     result = [];
     return result;
