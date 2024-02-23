@@ -9,9 +9,7 @@
 #define HOST_IP               "10.0.0.4"
 #define HOST_PORT             3000
 #define MAX_IO_COUNT          12
-// Wireless access point ssid password
-//#define WIFI_SSID               "rafs hideout"
-//#define WIFI_PASSWD             "Rogers123"
+
 
 
 /*
